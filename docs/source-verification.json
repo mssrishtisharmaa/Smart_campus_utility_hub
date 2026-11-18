@@ -1,0 +1,65 @@
+{
+  "checkedAt": "2026-09-24T09:14:19.084Z",
+  "results": [
+    {
+      "id": "forecast",
+      "status": 200,
+      "ok": true,
+      "source": "https://open-meteo.com/en/docs",
+      "isDemo": false,
+      "retrievedAt": "2026-09-24T09:14:16.595Z",
+      "durationMs": 2188,
+      "error": null
+    },
+    {
+      "id": "gfs",
+      "status": 200,
+      "ok": true,
+      "source": "https://open-meteo.com/en/docs/gfs-api",
+      "isDemo": false,
+      "retrievedAt": "2026-09-24T09:14:16.559Z",
+      "durationMs": 2033,
+      "error": null
+    },
+    {
+      "id": "era5",
+      "status": 200,
+      "ok": true,
+      "source": "https://open-meteo.com/en/docs/historical-weather-api",
+      "isDemo": false,
+      "retrievedAt": "2026-09-24T09:14:17.803Z",
+      "durationMs": 3320,
+      "error": null
+    },
+    {
+      "id": "air-quality",
+      "status": 200,
+      "ok": true,
+      "source": "https://open-meteo.com/en/docs/air-quality-api",
+      "isDemo": false,
+      "retrievedAt": "2026-09-24T09:14:15.913Z",
+      "durationMs": 1506,
+      "error": null
+    },
+    {
+      "id": "marine",
+      "status": 200,
+      "ok": true,
+      "source": "https://open-meteo.com/en/docs/marine-weather-api",
+      "isDemo": false,
+      "retrievedAt": "2026-09-24T09:14:16.271Z",
+      "durationMs": 1779,
+      "error": null
+    },
+    {
+      "id": "nasa-power",
+      "status": 200,
+      "ok": true,
+      "source": "https://power.larc.nasa.gov/docs/services/api/",
+      "isDemo": false,
+      "retrievedAt": "2026-09-24T09:14:16.737Z",
+      "durationMs": 2197,
+      "error": null
+    }
+  ]
+}

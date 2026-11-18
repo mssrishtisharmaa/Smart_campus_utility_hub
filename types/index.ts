@@ -1,0 +1,132 @@
+export type Persona = "citizen" | "farmer" | "disaster_manager" | "researcher";
+export type User = {
+  id: string;
+  email: string;
+  name: string;
+  role: "citizen" | "admin";
+  persona: Persona;
+  mode: "supabase" | "local-demo";
+  demoAccount?: boolean;
+  preferences?: Record<string,unknown>;
+};
+export type Place = {
+  id: string;
+  name: string;
+  state: string;
+  latitude: number;
+  longitude: number;
+  timezone: string;
+};
+export type Hour = {
+  time: string;
+  temperature: number;
+  rainProbability: number;
+  precipitation: number;
+  wind: number;
+  code: number;
+};
+export type Day = {
+  date: string;
+  high: number;
+  low: number;
+  rainProbability: number;
+  precipitation: number;
+  wind: number;
+  code: number;
+  sunrise: string;
+  sunset: string;
+};
+export type Weather = {
+  location: Place;
+  current: {
+    temperature: number;
+    apparent: number;
+    humidity: number;
+    wind: number;
+    windDirection: number;
+    pressure: number;
+    visibility: number | null;
+    code: number;
+    time: string;
+  };
+  hourly: Hour[];
+  daily: Day[];
+  provider: string;
+  retrievedAt: string;
+  issuedAt: string | null;
+  validFrom: string;
+  validTo: string;
+  state: "live" | "cached" | "stale" | "demo";
+  isDemo: boolean;
+  hash: string;
+  unit: "°C";
+  error?: string;
+};
+export type Risk = {
+  level: "Safe" | "Advisory" | "Watch" | "Alert" | "Warning";
+  hazards: string[];
+  actions: string[];
+  confidence: "High" | "Medium" | "Low";
+  reasons: string[];
+  ruleVersion: string;
+};
+export type Advisory = {
+  status: "Suitable" | "Caution" | "Avoid";
+  start: string;
+  end: string;
+  reasons: string[];
+  rainProbability: number;
+  wind: number;
+  temperature: number;
+  score: number;
+};
+export type Alert = {
+  id: string;
+  title: string;
+  description: string;
+  severity: "Advisory" | "Watch" | "Alert" | "Warning" | "Emergency";
+  origin: "official" | "derived" | "community";
+  hazard_type: string;
+  source_name: string;
+  source_url: string;
+  issued_at: string;
+  valid_from: string;
+  valid_to: string;
+  location_name: string;
+  instructions: string;
+  is_demo: boolean;
+  published: boolean;
+  latitude: number;
+  longitude: number;
+};
+export type RecordItem = {
+  id: string;
+  user_id: string;
+  created_at: string;
+  updated_at: string;
+  payload: Record<string, unknown>;
+};
+export type Evidence = {
+  location: string;
+  source: string;
+  sourceUrl: string;
+  retrievedAt: string;
+  issuedAt: string | null;
+  validFrom: string;
+  validTo: string;
+  state: Weather["state"];
+  confidence: Risk["confidence"];
+  reasons: string[];
+  ruleVersion: string;
+  hash: string;
+};
+export type ChatAnswer = {
+  answer: string;
+  risk: string;
+  action: string;
+  limitation: string;
+  evidence: Evidence;
+  windows?: Advisory[];
+  mode: string;
+  intent: string;
+};

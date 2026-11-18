@@ -1,0 +1,29 @@
+name: Validate WeatherGPT
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_DEMO_MODE: 'true'
+      WEATHER_PROVIDER: demo
+      DEMO_SESSION_SECRET: ci-only-non-production-secret-for-isolated-tests
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run start > /tmp/weather.log 2>&1 &
+      - run: npx wait-on http://127.0.0.1:3000/api/health
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: browser-test-evidence
+          path: test-results/

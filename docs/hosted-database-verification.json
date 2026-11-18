@@ -1,0 +1,14 @@
+{
+  "verifiedAt": "2026-09-24T09:02:55.493Z",
+  "project": "https://nsuvfphvpfolzvmitcsa.supabase.co",
+  "checks": [
+    "All three hosted demo accounts authenticate",
+    "Cross-account saved location read denied",
+    "Cross-account update denied",
+    "Citizen cannot grant administrator role",
+    "Owner impersonation denied",
+    "Messages materialize and conversations remain private from administrators",
+    "User cannot impersonate trusted notification system",
+    "Audit trail inaccessible to citizen"
+  ]
+}
