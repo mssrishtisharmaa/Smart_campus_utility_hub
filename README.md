@@ -8,7 +8,7 @@
 
 **Live application:** [weathergpt-bharat-theta.vercel.app](https://weathergpt-bharat-theta.vercel.app)
 
-WeatherGPT Bharat is a responsive weather decision-support platform built for an SIH demonstration. It combines a cinematic GSAP and Framer Motion experience with sourced forecasts, agriculture action windows, account-specific alerts, historical climate analysis, community observations and an administrator workspace.
+WeatherGPT Bharat is a responsive weather decision-support platform. It combines a cinematic GSAP and Framer Motion experience with sourced forecasts, agriculture action windows, account-specific alerts, historical climate analysis, community observations and an administrator workspace.
 
 ![WeatherGPT Bharat landing page](docs/premium-landing-dark.png)
 
